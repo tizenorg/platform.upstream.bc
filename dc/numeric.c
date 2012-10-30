@@ -254,8 +254,8 @@ dc_int2data DC_DECLARG((value))
 {
 	dc_data result;
 
-	bc_init_num((bc_num *)&result.v.number);
-	bc_int2num((bc_num *)&result.v.number, value);
+	bc_init_num(&result.v.number);
+	bc_int2num(&result.v.number, value);
  	result.dc_type = DC_NUMBER;
 	return result;
 }
