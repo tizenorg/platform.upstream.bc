@@ -1,5 +1,10 @@
 This is bc.info, produced by makeinfo version 4.0 from bc.texi.
 
+START-INFO-DIR-ENTRY
+* bc: (bc).                   An arbritrary precision calculator language
+END-INFO-DIR-ENTRY
+
+
 
 File: bc.info,  Node: Top,  Next: Introduction,  Prev: (dir),  Up: (dir)
 

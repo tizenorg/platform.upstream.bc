@@ -68,7 +68,7 @@ AC_ARG_WITH(readline,[  --with-readline         support fancy command input edit
 ])
 
 if test "$LEX" = "flex" ; then
- LEX="flex -I8"
+ LEX="flex -I -8"
 else
  if test "$bcrl" = "y" ; then
   AC_MSG_WARN(readline works only with flex.)

@@ -423,7 +423,7 @@ int insert_id_rec (root, new_id)
 	case  0:  /* no height increase. */
 	  return (FALSE);
 	case -1:  /* height increase. */
-	  return (FALSE);
+	  return (TRUE);
 	case -2:  /* we need to do a rebalancing act. */
 	  A = *root;
 	  B = (*root)->left;
@@ -476,7 +476,7 @@ int insert_id_rec (root, new_id)
 	    case 0:  /* no height increase. */
 	      return (FALSE);
 	    case 1:  /* height increase. */
-	      return (FALSE);
+	      return (TRUE);
 	    case 2:  /* we need to do a rebalancing act. */
 	      A = *root;
 	      B = (*root)->right;
