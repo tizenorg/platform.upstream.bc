@@ -93,6 +93,9 @@ parse_args (argc, argv)
 
       switch (optch)
 	{
+	case 0:    /* long option */
+	  break;
+
 	case 'c':  /* compile only */
 	  compile_only = TRUE;
 	  break;
