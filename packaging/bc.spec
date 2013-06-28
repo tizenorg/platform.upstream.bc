@@ -7,6 +7,7 @@ Version:        1.06
 Release:        0
 Summary:        GNU Command Line Calculator
 Source:         %{name}-%{version}.tar.bz2
+Source1001: 	bc.manifest
 
 %description
 bc is an interpreter that supports numbers of arbitrary precision and
@@ -28,6 +29,7 @@ and "pushes" its results back onto the stack.
 
 %prep
 %setup -q
+cp %{SOURCE1001} .
 
 %build
 autoreconf -fi
@@ -44,6 +46,7 @@ make
 make install DESTDIR=$RPM_BUILD_ROOT
 
 %files
+%manifest %{name}.manifest
 %defattr(-,root,root)
 %doc COPYING
 /usr/bin/bc
