@@ -40,6 +40,7 @@ autoreconf -fi
             --mandir=%{_mandir} \
             --build=%{_target_cpu}-suse-linux
 rm bc/libmath.h
+sed -i 's|\(^_PR.*readline.*$\)|/* \1 */|' bc/scan.l
 make
 
 %install
