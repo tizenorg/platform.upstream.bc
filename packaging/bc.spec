@@ -32,8 +32,7 @@ and "pushes" its results back onto the stack.
 cp %{SOURCE1001} .
 
 %build
-autoreconf -fi
-./configure CFLAGS="$RPM_OPT_FLAGS" \
+%reconfigure CFLAGS="$RPM_OPT_FLAGS" \
             --with-readline \
             --prefix=/usr \
 	    --infodir=%{_infodir} \
