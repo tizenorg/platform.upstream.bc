@@ -1,13 +1,19 @@
 Name:           bc
-BuildRequires:  automake bison ed flex readline-devel
+
+BuildRequires:  automake
+BuildRequires:  bison
+BuildRequires:  ed
+BuildRequires:  flex
+BuildRequires:  readline-devel
+
 Url:            ftp://ftp.gnu.org/pub/gnu/bc
 License:        GPL-2.0+
-Group:          Productivity/Scientific/Math
+Group:          Base/Utilities
 Version:        1.06
 Release:        0
 Summary:        GNU Command Line Calculator
 Source:         %{name}-%{version}.tar.bz2
-Source1001: 	bc.manifest
+Source1001:     bc.manifest
 
 %description
 bc is an interpreter that supports numbers of arbitrary precision and
@@ -32,13 +38,8 @@ and "pushes" its results back onto the stack.
 cp %{SOURCE1001} .
 
 %build
-autoreconf -fi
-./configure CFLAGS="$RPM_OPT_FLAGS" \
-            --with-readline \
-            --prefix=/usr \
-	    --infodir=%{_infodir} \
-            --mandir=%{_mandir} \
-            --build=%{_target_cpu}-suse-linux
+%reconfigure --with-readline
+
 rm bc/libmath.h
 sed -i 's|\(^_PR.*readline.*$\)|/* \1 */|' bc/scan.l
 make
@@ -50,8 +51,8 @@ make install DESTDIR=$RPM_BUILD_ROOT
 %manifest %{name}.manifest
 %defattr(-,root,root)
 %doc COPYING
-/usr/bin/bc
-/usr/bin/dc
+%{_bindir}/bc
+%{_bindir}/dc
 %{_infodir}/*.info*
 %{_mandir}/man1/*
 
